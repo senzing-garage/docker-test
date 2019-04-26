@@ -9,7 +9,6 @@ LABEL Name="senzing/test" \
 # XXX
 
 RUN mkdir -p /opt/senzing
-RUN mkdir -p /tmp/mjd
 
 # Copy files from repository.
 
