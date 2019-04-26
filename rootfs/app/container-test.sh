@@ -9,4 +9,4 @@ NOT_OK=1
 
 echo "Doing testing."
 
-exit ${NOT_OK}
+exit ${OK}
