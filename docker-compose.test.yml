@@ -1,9 +1,5 @@
 version: '3'
 services:
   sut:
-    container_name: test
-    image: senzing/test
-    build: 
-      context: .
-      dockerfile: Dockerfile      
+    build: . 
     command: /app/container-test.sh
