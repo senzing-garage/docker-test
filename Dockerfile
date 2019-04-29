@@ -21,4 +21,4 @@ COPY ./rootfs /
 
 WORKDIR /app
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
-CMD ["/app/sleep-infinitely.sh"]
+CMD ["/app/sleep-infinity.sh"]
