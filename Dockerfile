@@ -4,7 +4,10 @@ FROM ${BASE_IMAGE}
 ENV REFRESHED_AT=2019-04-12
 
 LABEL Name="senzing/test" \
+      Maintainer="test@senzing.com" \
       Version="1.0.0"
+
+HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
 # XXX
 
