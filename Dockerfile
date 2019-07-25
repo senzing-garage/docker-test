@@ -1,24 +1,29 @@
-ARG BASE_IMAGE=senzing/senzing-base:1.0.3
+ARG BASE_IMAGE=senzing/senzing-base:1.1.0
 FROM ${BASE_IMAGE}
 
-ENV REFRESHED_AT=2019-05-01
+ENV REFRESHED_AT=2019-07-23
 
 LABEL Name="senzing/test" \
       Maintainer="support@senzing.com" \
-      Version="1.0.0"
+      Version="1.1.0"
 
 HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
-# Make directories.
+# Run as "root" for system installation.
 
-RUN mkdir -p /opt/senzing
+USER root
+
+# Install packages via apt.
 
 # Copy files from repository.
 
 COPY ./rootfs /
 
+# Make non-root container.
+
+USER 1001
+
 # Runtime execution.
 
 WORKDIR /app
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["/app/sleep-infinity.sh"]
