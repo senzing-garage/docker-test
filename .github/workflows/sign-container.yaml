@@ -62,7 +62,7 @@ jobs:
       - name: Build and push Docker image for github release
         id: build-and-push
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
-        if: github.event.action == 'release'
+        if: github.event_name == 'release'
         with:
           context: .
           push: true
@@ -72,7 +72,7 @@ jobs:
       - name: Build and Push Latest Docker Image
         id: build-and-push-latest
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
-        if: github.event.action == 'push'
+        if: github.event_name == 'push'
         with:
           context: .
           push: true
@@ -89,7 +89,7 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        if: github.event.action == 'release'
+        if: github.event_name == 'release'
         run: cosign sign ${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
       
       - name: Sign the Docker image on push
@@ -97,5 +97,5 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        if: github.event.action == 'push'
+        if: github.event_name == 'push'
         run: cosign sign ${{ env.IMAGE_NAME }}@${{ steps.build-and-push-latest.outputs.digest }}
