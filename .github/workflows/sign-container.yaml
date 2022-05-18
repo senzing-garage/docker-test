@@ -2,11 +2,9 @@ name: Docker
 on:
   release:
     types: [published]
-    # Publish server tags as releases.
     tags: [ 'v*.*.*' ]
   push:
     branches: [master]
-    tags: [ 'latest' ]
 
 env:
   # Use docker.io for Docker Hub if empty
