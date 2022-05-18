@@ -1,13 +1,9 @@
 name: Docker
 on:
-  push:
-    branches:
-      - issue-34.chia.1
+  release:
+    types: [published]
     # Publish server tags as releases.
     tags: [ 'v*.*.*' ]
-  pull_request:
-    branches:
-      - issue-34.chia.1
 
 env:
   # Use docker.io for Docker Hub if empty
