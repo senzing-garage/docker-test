@@ -59,7 +59,7 @@ jobs:
           tags: |
             # set latest tag for main branch
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
-            type=semver,pattern={{version}},value={{version}}
+            type=semver,pattern={{version}}
           
       - name: Build and push Docker image for github release
         id: build-and-push
