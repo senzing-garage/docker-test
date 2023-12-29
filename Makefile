@@ -20,9 +20,9 @@ default: help
 # -----------------------------------------------------------------------------
 
 .PHONY: docker-build
-docker-build: 
+docker-build:
 	docker build \
-	    --tag $(DOCKER_IMAGE_NAME) \
+		--tag $(DOCKER_IMAGE_NAME) \
 		--tag $(DOCKER_IMAGE_NAME):$(GIT_VERSION) \
 		.
 
