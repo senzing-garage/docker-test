@@ -62,7 +62,7 @@ jobs:
 
       - name: build and push Docker image for GitHub release
         id: build-and-push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
