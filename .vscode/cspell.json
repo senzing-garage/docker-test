@@ -11,11 +11,14 @@
     "dockerhub",
     "esbenp",
     "ICLA",
+    "kernelsam",
     "pydevproject",
     "rootfs",
     "Senzing",
     "stackoverflow",
     "toplevel"
   ],
-  "ignorePaths": [".git/**"]
+  "ignorePaths": [
+    ".git/**"
+  ]
 }
